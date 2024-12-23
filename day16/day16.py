@@ -86,7 +86,7 @@ def dijkstra(matrix, start):
                 distances[(nx, ny, (dx, dy))] = new_cost
                 heapq.heappush(pq, (new_cost, nx, ny, dx, dy))
 
-        for ndx, ndy in [(dy, -dx), (-dy, dx)]:  # Gira derecha y izquierda
+        for ndx, ndy in [(dy, -dx), (-dy, dx)]:
             if distances[(x, y, (ndx, ndy))] > cost + 1000:
                 distances[(x, y, (ndx, ndy))] = cost + 1000
                 heapq.heappush(pq, (cost + 1000, x, y, ndx, ndy))
@@ -100,5 +100,5 @@ def one_star(input):
     return dijkstra(matrix, (x,y,0,1))
 
 
-text = read('input.txt')
+text = read('day16/input.txt')
 print(one_star(text))
